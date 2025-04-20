@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "fine-sentry",
+    "slug": "fine-sentry",
+    "version": "1.0.0",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-sqlite",
+      "expo-font"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "scheme": "myapp",
+    "platform": [
+      "android"
+    ],
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "2b15cc0b-b150-4668-bf46-30b200f0368f"
+      }
+    },
+    "android": {
+      "package": "com.gnujesus.finesentry",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyAe51Ab6Slyp-i1-DXgtISvzvR8Q1sIhPg"
+        }
+      },
+      "permissions": [
+        "ACCESS_COARSE_LOCATION",
+        "ACCESS_FINE_LOCATION"
+      ]
+    }
+  }
+}
