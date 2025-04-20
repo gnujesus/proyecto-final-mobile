@@ -28,8 +28,9 @@ export default function Map() {
 
         // Filter out shelters with invalid coordinates and convert strings to numbers
         const validShelters = all.datos.filter((shelter: any) => {
-          const lat = parseFloat(shelter.lng);
-          const lng = parseFloat(shelter.lat);
+          const lat = parseFloat(shelter.lat);
+          const lng = parseFloat(shelter.lng);
+          return !isNaN(lat) && !isNaN(lng);
         });
 
         console.log("Valid shelters:", validShelters);
@@ -48,25 +49,21 @@ export default function Map() {
           style={{ flex: 1, width: "100%", height: "100%" }}
           provider={PROVIDER_GOOGLE}
           initialRegion={{
-            latitude: 18.4861,
-            longitude: -69.9312,
-            latitudeDelta: 0.0922,
-            longitudeDelta: 0.0421,
+            latitude: 18.47893,
+            longitude: -69.89178,
+            latitudeDelta: 0.1,
+            longitudeDelta: 0.1,
           }}
         >
           {shelters.map((shelter) => {
-            const lat = parseFloat(shelter.lng);
-            const lng = parseFloat(shelter.lat);
-            console.log("Rendering marker:", shelter.edificio, "at:", {
-              lat,
-              lng,
-            });
+            const lat = parseFloat(shelter.lat);
+            const lng = parseFloat(shelter.lng);
             return (
               <Marker
                 key={shelter.codigo}
                 coordinate={{
-                  latitude: lat,
-                  longitude: lng,
+                  latitude: lng,
+                  longitude: lat,
                 }}
                 title={shelter.edificio}
                 description={`Capacidad: ${shelter.capacidad}`}
