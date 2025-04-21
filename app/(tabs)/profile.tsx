@@ -1,4 +1,4 @@
-import { View, Text, ScrollView, Image } from "react-native";
+import { View, Text, ScrollView, Image, Linking } from "react-native";
 import Button from "@/components/Button";
 import React, { useCallback, useEffect } from "react";
 import BaseLayout from "@/components/BaseLayout";
@@ -7,7 +7,6 @@ import Animated, {
   useAnimatedStyle,
   useSharedValue,
   withSpring,
-  withTiming,
 } from "react-native-reanimated";
 import { useFocusEffect } from "expo-router";
 import { MessageCircle, Mail, GitFork, Phone } from "lucide-react-native";
@@ -19,24 +18,7 @@ export default function Profile() {
   const opacity = useSharedValue(0);
   const translateY = useSharedValue(50);
 
-  /*
-  * Note: This was my first approach. This is wrong, since this wont update every time I go to the profiles view.
-  const animatedStyle = useAnimatedStyle(() => {
-    return {
-      opacity: withTiming(opacity.value, { duration: 500 }),
-      transform: [
-        {
-          translateY: withTiming(translateY.value, {
-            duration: 500,
-          }),
-        },
-      ],
-    };
-  });
-  */
-
-  // * Now this is the right approach: first aniamtedStyle, then useEffect to change it on each render
-
+  // Animations
   const animatedFadeIn = useAnimatedStyle(() => {
     return {
       opacity: opacity.value,
@@ -61,6 +43,7 @@ export default function Profile() {
       role: "Full Stack Digital Craftsman",
       description:
         "I'm a full stack digital craftsman. Everything I do, I do with passion. My motto is 'elegant, efficient and effective'. I use nvim btw.",
+      TelegramUrl: "https://t.me/gnujesus", // Se agregó el campo TelegramUrl
     },
     {
       id: "2",
@@ -68,6 +51,7 @@ export default function Profile() {
       role: "Full Stack Digital Craftsman",
       description:
         "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
+      TelegramUrl: "https://t.me/alanTubert", // Se agregó el campo TelegramUrl
     },
     {
       id: "3",
@@ -75,6 +59,7 @@ export default function Profile() {
       role: "Full Stack Digital Craftsman",
       description:
         "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
+      TelegramUrl: "https://t.me/NestorParra", // Se agregó el campo TelegramUrl
     },
     {
       id: "2023-0233",
@@ -82,6 +67,7 @@ export default function Profile() {
       role: "Full Stack Developer",
       description:
         "I'm a full-stack digital creator with a focus on building scalable and efficient web applications, particularly using Express. I'm a fast learner and always on the lookout for new challenges to sharpen my skills and expand my expertise.",
+      TelegramUrl: "https://t.me/JosephHerreraNina", // Se agregó el campo TelegramUrl
     },
     {
       id: "2023-0191",
@@ -89,8 +75,22 @@ export default function Profile() {
       role: "Backend developer",
       description:
         "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I’m passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+      TelegramUrl: "https://t.me/alejandroMoscoso", // Se agregó el campo TelegramUrl
+    },
+    {
+      id: "2023-0191",
+      name: "Joshua Fermin",
+      role: "Backend developer",
+      description:
+        "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I’m passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+      TelegramUrl: "https://t.me/ramen_josh", // Se agregó el campo TelegramUrl
     },
   ];
+
+  // Handler for each button to open a URL
+  const openLink = (url: string) => {
+    Linking.openURL(url).catch((err) => console.error("Error opening URL:", err));
+  };
 
   return (
     <BaseLayout>
@@ -136,24 +136,28 @@ export default function Profile() {
               <Button
                 textClassName="text-sm !text-background"
                 className="py-1 !bg-white shadow-white/40"
+                onPress={() => openLink("https://t.me/yourTelegramUsername")} // Reemplaza con el enlace correcto de Telegram
               >
                 <MessageCircle size={16} color="#000" />
               </Button>
               <Button
                 textClassName="text-sm !text-background"
                 className="py-1 !bg-white shadow-white/40"
+                onPress={() => openLink(developer.TelegramUrl)} // Usamos el campo TelegramUrl
               >
                 <Mail size={16} color="#000" />
               </Button>
               <Button
                 textClassName="text-sm !text-background"
                 className="py-1 !bg-white shadow-white/40"
+                onPress={() => openLink("https://github.com/yourUsername")} // Reemplaza con tu enlace de GitHub
               >
                 <GitFork size={16} color="#000" />
               </Button>
               <Button
                 textClassName="text-sm !text-background"
                 className="py-1 !bg-white shadow-white/40"
+                onPress={() => openLink("tel:+1234567890")} // Reemplaza con un número de teléfono válido
               >
                 <Phone size={16} color="#000" />
               </Button>
