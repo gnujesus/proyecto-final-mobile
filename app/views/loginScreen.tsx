@@ -18,8 +18,17 @@ export default function LoginScreen() {
       
       // Aquí cambiamos `response.success` por `response.exito`
       if (response.exito) {
-        // Si el login es exitoso, redirige a la pantalla principal
-        router.push("/");
+        Alert.alert(
+          "¡Éxito!",
+          response.mensaje || "Inicio de sesión exitoso",
+          [
+            {
+              text: "OK",
+              onPress: () => router.push("/"), // Solo después de aceptar el alert, navega
+            },
+          ],
+          { cancelable: false }
+        );
       } else {
         // Si el login falla, muestra el mensaje de error de la API
         throw new Error(response.mensaje || "Credenciales incorrectas");
