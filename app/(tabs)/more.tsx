@@ -19,7 +19,7 @@ export default function Search() {
   }, []);
 
   const tabs = [
-    { id: 1, title: "Historia", route: "./historia" },
+    { id: 1, title: "Historia", route: "../views/history" },
     { id: 2, title: "Videos", route: "./videos" },
     { id: 3, title: "Alberges", route: "../views/shelters" },
     { id: 4, title: "Medidas Preventivas", route: "../views/preventiveMesures" },
