@@ -3,19 +3,22 @@
     "version": ">= 15.0.12",
     "appVersionSource": "remote"
   },
-  "build": {
-    "development": {
-      "developmentClient": true,
-      "distribution": "internal"
-    },
-    "preview": {
-      "distribution": "internal"
-    },
-    "production": {
-      "autoIncrement": true
+    "build": {
+      "development": {
+        "android": {
+          "buildType": "apk"
+        },
+        "ios": {
+          "developmentClient": true 
+        }
+      },
+      "production": {
+        "android": {
+          "buildType": "app-bundle" 
+        },
+        "ios": {
+          "distribution": "store"
+        }
+      }
     }
-  },
-  "submit": {
-    "production": {}
-  }
 }

@@ -4,6 +4,7 @@
     "slug": "fine-sentry",
     "version": "1.0.0",
     "userInterfaceStyle": "automatic",
+    "icon": "./assets/icons/logo.png",
     "newArchEnabled": true,
     "web": {
       "bundler": "metro",
@@ -26,7 +27,7 @@
         "origin": false
       },
       "eas": {
-        "projectId": "2b15cc0b-b150-4668-bf46-30b200f0368f"
+        "projectId": "87e61c5d-c293-4b5f-b2e0-fe67b5a3b9fc"
       }
     },
     "android": {
@@ -40,6 +41,7 @@
         "ACCESS_COARSE_LOCATION",
         "ACCESS_FINE_LOCATION"
       ]
-    }
+    },
+    "owner": "josephfrost"
   }
 }

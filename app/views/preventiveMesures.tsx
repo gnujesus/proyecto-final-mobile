@@ -1,16 +1,14 @@
-import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
+import { ScrollView, Text } from "react-native";
 import React, { useEffect, useState } from "react";
 import BaseLayout from "../../components/BaseLayout";
+import MeasuresListItem from "../../components/MeasuresListItem";
 import { getMesures } from "../../services/preventiveMesures";
-
-// If you have a local placeholder image, put it in your assets folder:
-
 
 type Info = {
   id: string;
   titulo: string;
   descripcion: string;
-  foto: string; // mark as optional
+  foto: string;
 };
 
 export default function Informacion() {
@@ -27,7 +25,7 @@ export default function Informacion() {
           console.warn("API returned success=false");
         }
       } catch (err) {
-        console.error("Error fetching members:", err);
+        console.error("Error fetching mesures:", err);
       } finally {
         setLoading(false);
       }
@@ -38,82 +36,25 @@ export default function Informacion() {
   if (loading) {
     return (
       <BaseLayout>
-        <Text style={styles.loadingText}>Cargando información…</Text>
+        <Text className="text-white text-center mt-10">Cargando información…</Text>
       </BaseLayout>
     );
   }
 
   return (
     <BaseLayout>
-      <Text style={styles.header}>Medidas preventivas</Text>
+      <Text className="text-2xl font-bold text-white text-center my-4">
+        Medidas Preventivas
+      </Text>
+
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.scrollContainer}
+        contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 40 }}
       >
-        {info.map((item) => {
-          // Determine which image URI to use:
-
-          return (
-            <View key={item.id} style={styles.card}>
-              <Image
-                source={{ uri: item.foto} }
-                style={styles.image}
-                resizeMode="cover"
-              />
-              <Text style={styles.title}>{item.titulo}</Text>
-              <Text style={styles.description}>{item.descripcion}</Text>
-            </View>
-          );
-        })}
+        {info.map((item) => (
+          <MeasuresListItem key={item.id} measure={item} />
+        ))}
       </ScrollView>
     </BaseLayout>
   );
 }
-
-const styles = StyleSheet.create({
-  header: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "white",
-    textAlign: "center",
-    marginVertical: 16,
-  },
-  scrollContainer: {
-    paddingHorizontal: 20,
-    paddingBottom: 40,
-  },
-  card: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 16,
-    marginBottom: 16,
-    // iOS shadow
-    shadowColor: "#000",
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
-    // Android elevation
-    elevation: 3,
-  },
-  image: {
-    width: "100%",
-    height: 200,
-    borderRadius: 8,
-    marginBottom: 12,
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: "600",
-    color: "#333",
-    marginBottom: 6,
-  },
-  description: {
-    fontSize: 16,
-    color: "#666",
-  },
-  loadingText: {
-    color: "white",
-    textAlign: "center",
-    marginTop: 50,
-  },
-});
