@@ -28,8 +28,6 @@ export const initializeDatabase = async () => {
       audio_uri TEXT
     );
   `);
-
-  console.log("🗃️ Initialized fines table (DEV)");
 };
 
 /**

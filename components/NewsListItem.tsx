@@ -12,7 +12,7 @@ export default function NewsListItem({ news }: Props) {
 
   const handlePress = () => {
     // TODO: Change to news/
-    router.push(`/fines/${news.id}`);
+    router.push(`/news/${news.id}`);
   };
 
   return (

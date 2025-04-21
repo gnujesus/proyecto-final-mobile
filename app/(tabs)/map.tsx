@@ -24,16 +24,15 @@ export default function Map() {
     const run = async () => {
       try {
         const all = await getAllShelters();
-        console.log("Raw data:", all.datos);
 
         // Filter out shelters with invalid coordinates and convert strings to numbers
+        console.log("Raw data:", all.datos);
         const validShelters = all.datos.filter((shelter: any) => {
           const lat = parseFloat(shelter.lat);
           const lng = parseFloat(shelter.lng);
           return !isNaN(lat) && !isNaN(lng);
         });
 
-        console.log("Valid shelters:", validShelters);
         setShelters(validShelters);
       } catch (error) {
         console.error("Error loading shelters:", error);
