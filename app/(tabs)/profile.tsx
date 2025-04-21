@@ -78,7 +78,7 @@ export default function Profile() {
       TelegramUrl: "https://t.me/alejandroMoscoso", // Se agregó el campo TelegramUrl
     },
     {
-      id: "2023-0191",
+      id: "2022-2085",
       name: "Joshua Fermin",
       role: "Backend developer",
       description:
