@@ -21,8 +21,8 @@ export default function Search() {
   const tabs = [
     { id: 1, title: "Historia", route: "./historia" },
     { id: 2, title: "Videos", route: "./videos" },
-    { id: 3, title: "Alberges", route: "./alberges" },
-    { id: 4, title: "Medidas Preventivas", route: "../views//preventiveMesures" },
+    { id: 3, title: "Alberges", route: "../views/shelters" },
+    { id: 4, title: "Medidas Preventivas", route: "../views/preventiveMesures" },
     { id: 5, title: "Miembros", route: "../views/miembros" },
     { id: 6, title: "Quiero ser Voluntario", route: "./voluntario" },
   ];
