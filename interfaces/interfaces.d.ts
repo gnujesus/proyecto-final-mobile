@@ -20,3 +20,12 @@ interface New {
   contenido: string;
   foto: string;
 }
+
+interface User {
+  id: string,
+  name: string;
+  lastName: string;
+  password: string;
+  email: string;
+  phone: string;
+}
