@@ -1,13 +1,13 @@
 import { View, Text, Pressable, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
-import FineGrid from "../../components/FineGrid";
-import FineCard from "@/components/FineCard";
 import { getAllFines, initializeDatabase } from "@/hooks/useDatabase";
 import BaseLayout from "@/components/BaseLayout";
-import SearchBar from "@/components/SearchBar";
+import { RelativePathString, usePathname, useRouter } from "expo-router";
+import { useSharedValue } from "react-native-reanimated";
 
 export default function Search() {
   const [data, setData] = useState<Fine[]>();
+  const router = useRouter(); // ✅ Add router
 
   useEffect(() => {
     const run = async () => {
@@ -18,15 +18,14 @@ export default function Search() {
     run();
   }, []);
 
-  const buttons = Array.from({ length: 6 }, (_, i) => (
-    <Pressable
-      key={i}
-      onPress={() => console.log("hey")}
-      className="bg-white w-64 py-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
-    >
-      <Text className="text-gray-900 text-center font-semibold text-lg">Hola</Text>
-    </Pressable>
-  ));
+  const tabs = [
+    { id: 1, title: "Historia", route: "./historia" },
+    { id: 2, title: "Videos", route: "./videos" },
+    { id: 3, title: "Alberges", route: "./alberges" },
+    { id: 4, title: "Medidas Preventivas", route: "../views//preventiveMesures" },
+    { id: 5, title: "Miembros", route: "../views/miembros" },
+    { id: 6, title: "Quiero ser Voluntario", route: "./voluntario" },
+  ];
 
   return (
     <BaseLayout className="px-5 py-6">
@@ -37,10 +36,20 @@ export default function Search() {
       <ScrollView
         contentContainerStyle={{
           paddingBottom: 20,
-          alignItems: "center", // ✅ this aligns children horizontally
+          alignItems: "center",
         }}
       >
-        {buttons}
+        {tabs.map((tab) => (
+          <Pressable
+            key={tab.id}
+            onPress={() => router.push(tab.route as RelativePathString)} // ✅ Navigate to screen
+            className="bg-white w-64 py-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
+          >
+            <Text className="text-gray-900 text-center font-semibold text-lg">
+              {tab.title}
+            </Text>
+          </Pressable>
+        ))}
       </ScrollView>
     </BaseLayout>
   );
