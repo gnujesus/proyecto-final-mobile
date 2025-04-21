@@ -104,21 +104,6 @@ export default function IndexScreen() {
             ))}
           </View>
         </View>
-
-        {/* Mostrar el botón de login solo si no está logueado */}
-        {!isLoggedIn && (
-          <View className="px-8 mt-10">
-            <TouchableOpacity
-              onPress={handleLoginRedirect}
-              className="bg-orange-600 py-3 rounded-2xl shadow-md"
-            >
-              <Text className="text-center text-white text-lg font-semibold">
-                Iniciar sesión
-              </Text>
-            </TouchableOpacity>
-          </View>
-        )}
-
         <View>
           <Text className="text-3xl font-bold text-center text-orange-600 mt-4">
             Misión

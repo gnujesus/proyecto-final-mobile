@@ -1,7 +1,7 @@
-import { Text, View, TextInput, Button, Alert } from "react-native";
+import { Text, View, TextInput, Button, Alert, StyleSheet } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { login } from "@/services/login";  // Asegúrate de importar el servicio login
+import { login } from "@/services/login";
 
 export default function LoginScreen() {
   const router = useRouter();
@@ -13,10 +13,9 @@ export default function LoginScreen() {
     setLoading(true);
 
     try {
-      const response = await login(cedula, clave); // Usamos el servicio de login
+      const response = await login(cedula, clave);
       console.log(response);
       
-      // Aquí cambiamos `response.success` por `response.exito`
       if (response.exito) {
         Alert.alert(
           "¡Éxito!",
@@ -24,21 +23,18 @@ export default function LoginScreen() {
           [
             {
               text: "OK",
-              onPress: () => router.push("/(tabs)/home"), // Solo después de aceptar el alert, navega
+              onPress: () => router.push("/(tabs)/home"),
             },
           ],
           { cancelable: false }
         );
       } else {
-        // Si el login falla, muestra el mensaje de error de la API
         throw new Error(response.mensaje || "Credenciales incorrectas");
       }
     } catch (error: any) {
-      // Verificamos si el error es una instancia de Error
       if (error instanceof Error) {
         Alert.alert("Error", error.message || "Hubo un problema al iniciar sesión");
       } else {
-        // Si el error no es una instancia de Error, mostramos un error genérico
         Alert.alert("Error", "Hubo un problema inesperado");
       }
     } finally {
@@ -47,29 +43,65 @@ export default function LoginScreen() {
   };
 
   return (
-    <View style={{ padding: 20 }}>
-      <Text style={{ fontSize: 24, fontWeight: "bold", textAlign: "center" }}>Iniciar sesión</Text>
+    <View style={styles.container}>
+      <Text style={styles.title}>Iniciar sesión</Text>
       
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1, marginBottom: 10, paddingLeft: 10 }}
+        style={styles.input}
         placeholder="Cédula"
+        placeholderTextColor="#999"
         value={cedula}
         onChangeText={setCedula}
       />
       
       <TextInput
-        style={{ height: 40, borderColor: "gray", borderWidth: 1, marginBottom: 20, paddingLeft: 10 }}
+        style={styles.input}
         placeholder="Contraseña"
+        placeholderTextColor="#999"
         secureTextEntry
         value={clave}
         onChangeText={setClave}
       />
       
-      <Button
-        title={loading ? "Cargando..." : "Iniciar sesión"}
-        onPress={handleLogin}
-        disabled={loading} // Deshabilita el botón mientras se realiza la autenticación
-      />
+      <View style={styles.buttonContainer}>
+        <Button
+          title={loading ? "Cargando..." : "Iniciar sesión"}
+          onPress={handleLogin}
+          disabled={loading}
+          color="#FF9500" // Naranja para el botón
+        />
+      </View>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    padding: 20,
+    backgroundColor: '#000', // Fondo negro
+    justifyContent: 'center',
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: '#FF9500', // Naranja para el título
+    marginBottom: 30,
+  },
+  input: {
+    height: 50,
+    borderColor: '#FF9500', // Borde naranja
+    borderWidth: 1,
+    marginBottom: 15,
+    paddingLeft: 15,
+    borderRadius: 5,
+    color: '#FFF', // Texto blanco
+    backgroundColor: '#333', // Fondo oscuro para los inputs
+  },
+  buttonContainer: {
+    marginTop: 10,
+    borderRadius: 5,
+    overflow: 'hidden', // Para mantener el borde redondeado en Android
+  },
+});
