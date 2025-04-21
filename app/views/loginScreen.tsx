@@ -24,7 +24,7 @@ export default function LoginScreen() {
           [
             {
               text: "OK",
-              onPress: () => router.push("/"), // Solo después de aceptar el alert, navega
+              onPress: () => router.push("/(tabs)/home"), // Solo después de aceptar el alert, navega
             },
           ],
           { cancelable: false }

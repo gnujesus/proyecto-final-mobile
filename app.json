@@ -31,7 +31,7 @@
       }
     },
     "android": {
-      "package": "com.gnujesus.finesentry",
+      "package": "com.amadis.securityapp",
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyAe51Ab6Slyp-i1-DXgtISvzvR8Q1sIhPg"
