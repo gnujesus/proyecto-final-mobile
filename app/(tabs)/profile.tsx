@@ -76,6 +76,20 @@ export default function Profile() {
       description:
         "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
     },
+    {
+      id: "2023-0233",
+      name: "Joseph Herrera Nina",
+      role: "Full Stack Developer",
+      description:
+        "I'm a full-stack digital creator with a focus on building scalable and efficient web applications, particularly using Express. I'm a fast learner and always on the lookout for new challenges to sharpen my skills and expand my expertise.",
+    },
+    {
+      id: "2023-0191",
+      name: "Alejandro Moscoso",
+      role: "Backend developer",
+      description:
+        "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I’m passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+    },
   ];
 
   return (
