@@ -1,7 +1,7 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import BaseLayout from "../../components/BaseLayout";
-import { getAllShelters } from "../../services/shelter"; // Ajusta esto según tu servicio real
+import { getAllShelters } from "../../services/shelter"; 
 
 type Shelter = {
   coordinador: string;

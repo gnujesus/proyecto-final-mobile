@@ -20,7 +20,7 @@ export default function Search() {
 
   const tabs = [
     { id: 1, title: "Historia", route: "../views/history" },
-    { id: 2, title: "Videos", route: "./videos" },
+    { id: 2, title: "Videos", route: "../views/videos" },
     { id: 3, title: "Alberges", route: "../views/shelters" },
     { id: 4, title: "Medidas Preventivas", route: "../views/preventiveMesures" },
     { id: 5, title: "Miembros", route: "../views/miembros" },
@@ -42,7 +42,7 @@ export default function Search() {
         {tabs.map((tab) => (
           <Pressable
             key={tab.id}
-            onPress={() => router.push(tab.route as RelativePathString)} // ✅ Navigate to screen
+            onPress={() => router.push(tab.route as RelativePathString)} 
             className="bg-white w-64 py-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
           >
             <Text className="text-gray-900 text-center font-semibold text-lg">
