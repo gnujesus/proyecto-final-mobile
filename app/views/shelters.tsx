@@ -1,7 +1,8 @@
 import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useState } from "react";
 import BaseLayout from "../../components/BaseLayout";
-import { getAllShelters } from "../../services/shelter"; 
+import ShelterListItem from "../../components/ShelterListItem"; // Componente para la lista de albergues
+import { getAllShelters } from "../../services/shelter"; // Asegúrate de que esta función devuelva los datos correctamente
 
 type Shelter = {
   coordinador: string;
@@ -19,7 +20,7 @@ export default function Albergues() {
 
   useEffect(() => {
     const fetchShelters = async () => {
-      const res = await getAllShelters(); // Debe devolver el JSON que mostraste
+      const res = await getAllShelters(); // Asegúrate de que esta función devuelva el JSON que mostrabas
       if (res.exito) {
         setShelters(res.datos);
       }
@@ -34,16 +35,8 @@ export default function Albergues() {
       </Text>
       <ScrollView showsVerticalScrollIndicator={false}>
         {shelters.map((item, index) => (
-          <View key={index} className="bg-white rounded-xl shadow-md p-4 mb-4">
-             <Text className="text-xl font-bold  text-center mb-6">
-              {item.codigo}
-               </Text>
-            <Text className="text-gray-700 mb-1">Coordinador {item.coordinador}</Text>
-            <Text className="text-gray-700 mb-1">📍 {item.edificio}</Text>
-            <Text className="text-gray-700 mb-1">📞 {item.telefono}</Text>
-            <Text className="text-gray-700 mb-1">🏠 Capacidad: {!item.capacidad ? "N/A": item.capacidad} </Text>
-            <Text className="text-gray-700 mb-1">🌍 Provincia: {item.ciudad}</Text>
-            <Text className="text-gray-500 text-sm">Lat: {item.lat} | Long: {item.lng}</Text>
+          <View key={index} className="mb-4">
+            <ShelterListItem shelter={item} />
           </View>
         ))}
       </ScrollView>
