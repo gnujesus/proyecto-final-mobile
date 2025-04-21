@@ -17,7 +17,7 @@ export default function RootLayout() {
         options={{ enableChangeListener: true }}
         useSuspense
       >
-        <Stack>
+        <Stack initialRouteName="views/loginScreen">
           <Stack.Screen name="views/loginScreen" options={{ headerShown: false }} />
           <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
           <Stack.Screen name="fines/[id]" options={{ headerShown: false }} />

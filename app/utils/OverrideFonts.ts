@@ -13,3 +13,7 @@ const oldRender = (Text as any).render;
     style: [{ fontFamily: defaultFontFamily }, origin.props.style],
   });
 };
+
+export default function OverrideFonts() {
+  return null;
+}
