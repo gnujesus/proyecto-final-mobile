@@ -50,7 +50,7 @@ export default function Profile() {
       description:
         "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
       TelegramUrl: "https://t.me/alanTubert",
-      imageUrl: "../../assets/images/Alan pic.jpg",
+      imageUrl: "https://www.linkedin.com/in/alan-tubert-aa319a1b2?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADGBTpsBPbFmW1_F8ifQlFeOQfFMZZeQjC0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BsrkX59jdTiKVVvwleB0WvQ%3D%3D",
       githubUrl: "https://github.com/alanTubert"
     },
     {
