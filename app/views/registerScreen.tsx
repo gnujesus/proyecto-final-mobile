@@ -155,8 +155,14 @@ export default function Register() {
                   value={phone}
                   onChangeText={setPhone}
                 />
-
-                <Button title="Registrarse" onPress={handleSubmit} />
+                <View style={styles.buttonContainer}>
+                  <Button
+                    title={loading ? "Cargando..." : "Registrarse"}
+                    onPress={handleSubmit}
+                    disabled={loading}
+                    color="#FF9500" // Naranja para el botón
+                  />
+                </View>
               </ScrollView>
             )}
           </View>
@@ -170,7 +176,7 @@ const styles = StyleSheet.create({
   header: {
     fontSize: 24,
     fontWeight: "bold",
-    color: "white",
+    color: "#FF9500", // Naranja como en Login
     textAlign: "center",
     marginVertical: 16,
   },
@@ -178,12 +184,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     paddingBottom: 40,
   },
-  input: {
-    backgroundColor: "white",
+  buttonContainer:{
+    marginTop: 10,
     borderRadius: 8,
-    padding: 12,
+    overflow: 'hidden', 
+  },
+  input: {
+    height: 50,
+    borderColor: "#FF9500", // Borde naranja
+    borderWidth: 1,
+    borderRadius: 8,
+    paddingHorizontal: 15,
     marginBottom: 16,
     fontSize: 16,
-    color: "#333",
+    color: "#FFF", // Texto blanco
+    backgroundColor: "#333", // Fondo oscuro de inputs
   },
 });
+

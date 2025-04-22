@@ -37,73 +37,74 @@ export default function Profile() {
       id: "2023-0299",
       name: "Jesús Martínez",
       role: "Full Stack Digital Craftsman",
-      description:
-        "I'm a full stack digital craftsman. Everything I do, I do with passion. My motto is 'elegant, efficient and effective'. I use nvim btw.",
+      description: "I'm a full stack digital craftsman. Everything I do, I do with passion. My motto is 'elegant, efficient and effective'. I use nvim btw.",
       TelegramUrl: "https://t.me/gnujesus",
       imageUrl: "https://avatars.githubusercontent.com/u/107089453?v=4",
-      githubUrl: "https://github.com/gnujesus"
+      githubUrl: "https://github.com/gnujesus",
+      phone: "+1234567890",
     },
     {
       id: "2",
       name: "Alan Tubert Perez",
       role: "Full Stack Digital Craftsman",
-      description:
-        "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
+      description: "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
       TelegramUrl: "https://t.me/alanTubert",
-      imageUrl: "https://www.linkedin.com/in/alan-tubert-aa319a1b2?miniProfileUrn=urn%3Ali%3Afs_miniProfile%3AACoAADGBTpsBPbFmW1_F8ifQlFeOQfFMZZeQjC0&lipi=urn%3Ali%3Apage%3Ad_flagship3_search_srp_all%3BsrkX59jdTiKVVvwleB0WvQ%3D%3D",
-      githubUrl: "https://github.com/alanTubert"
+      imageUrl: "https://media.licdn.com/dms/image/v2/D4D35AQGOPybnbG3wkw/profile-framedphoto-shrink_800_800/0/1726625506279?e=1745895600&v=beta&t=vN_ih0tSialgxty8R6w_mDwrNbyTkW-9ArbzBBW4Gsk",
+      githubUrl: "https://github.com/alanTubert",
+      phone: "+1987654321",
     },
     {
       id: "3",
       name: "Nestor Parra",
       role: "Full Stack Digital Craftsman",
-      description:
-        "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
+      description: "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
       TelegramUrl: "https://t.me/NestorParra",
       imageUrl: "https://media.licdn.com/dms/image/v2/D4E03AQGPrM_e4FPpRA/profile-displayphoto-shrink_200_200/B4EZY10N3jHUAc-/0/1744659603322?e=1750896000&v=beta&t=fQSQvwYhE5wvdPETUpUX-_JbyYh8T0ApzEsCXsIg0po",
-      githubUrl: "https://github.com/NestorParra"
+      githubUrl: "https://github.com/NestorParra",
+      phone: "+18496319832"
     },
     {
       id: "2023-0233",
       name: "Joseph Herrera Nina",
       role: "Full Stack Developer",
-      description:
-        "I'm a full-stack digital creator with a focus on building scalable and efficient web applications, particularly using Express. I'm a fast learner and always on the lookout for new challenges to sharpen my skills and expand my expertise.",
+      description: "I'm a full-stack digital creator with a focus on building scalable and efficient web applications, particularly using Express. I'm a fast learner and always on the lookout for new challenges to sharpen my skills and expand my expertise.",
       TelegramUrl: "https://t.me/JosephHerreraNina",
       imageUrl: "https://avatars.githubusercontent.com/u/141087482?s=400&u=ea1a9dacbd7565dc4cd046b10518a396e1b40566&v=4",
-      githubUrl: "https://github.com/JosephHerrera"
+      githubUrl: "https://github.com/Josephfrost16",
+      phone: "+18296949661",
     },
     {
       id: "2023-0191",
       name: "Alejandro Moscoso",
       role: "Backend developer",
-      description:
-        "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+      description: "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
       TelegramUrl: "https://t.me/alejandroMoscoso",
       imageUrl: "https://media.licdn.com/dms/image/v2/D4E03AQF8aBnPoC4Uxw/profile-displayphoto-shrink_800_800/B4EZZajprhHcAc-/0/1745276018197?e=1750896000&v=beta&t=2qparkn2ntosDZCh8rKlw1JuHpUW_OpjkgnHL17Rx1A",
-      githubUrl: "https://github.com/alejandroMoscoso"
+      githubUrl: "https://github.com/alejandroMoscoso",
+      phone: "+1222333444",
     },
     {
       id: "2022-2085",
       name: "Joshua Fermin",
       role: "Backend developer",
-      description:
-        "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+      description: "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
       TelegramUrl: "https://t.me/ramen_josh",
       imageUrl: "https://media.licdn.com/dms/image/v2/D4E03AQHDTsWfh3eK_Q/profile-displayphoto-shrink_200_200/B4EZYlWyInHMAY-/0/1744383451963?e=1750896000&v=beta&t=JlbVIowvgaHMWaPhZ4CiMteTqQlLPEn-ReAxiOwCg7Q",
-      githubUrl: "https://github.com/joshuaFermin"
+      githubUrl: "https://github.com/ramenjosh232",
+      phone: "+1333444555",
     },
     {
       id: "2023-0676",
       name: "Juan Manuel de los Santos",
       role: "Backend developer",
-      description:
-        "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
+      description: "I'm a full-stack digital craftsman with a strong focus on backend development, especially using C#. I'm passionate about building scalable and efficient web applications. I'm a quick learner and always eager to tackle new challenges.",
       TelegramUrl: "https://t.me/ramen_josh",
-      imageUrl: "https://www.linkedin.com/in/juan-manuel-de-los-santos-069755250?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app",
-      githubUrl: "https://github.com/joshuaFermin"
+      imageUrl: "https://media.licdn.com/dms/image/v2/D4E03AQGNdfQVMYYAnQ/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1707343072999?e=1750896000&v=beta&t=y4-1zfZ3-8ewVwIBhG3ugmhlxXgJ6X7GVxbsPi1YdGk",
+      githubUrl: "https://github.com/joshuaFermin",
+      phone: "+1444555666",
     },
   ];
+  
 
   // Handler for each button to open a URL
   const openLink = (url: string) => {
