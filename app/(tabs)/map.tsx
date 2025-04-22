@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import BaseLayout from "@/components/BaseLayout";
 import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import { getAllShelters } from "@/services/shelter";
-import { getAllNews } from "@/services/news";
+import { RelativePathString, router } from "expo-router";
 
 interface Shelter {
   ciudad: string;
@@ -25,7 +25,6 @@ export default function Map() {
       try {
         const all = await getAllShelters();
 
-        // Filter out shelters with invalid coordinates and convert strings to numbers
         console.log("Raw data:", all.datos);
         const validShelters = all.datos.filter((shelter: any) => {
           const lat = parseFloat(shelter.lat);
@@ -40,6 +39,23 @@ export default function Map() {
     };
     run();
   }, []);
+
+  // 🧡 Aquí agregamos el handler para navegar
+  const handleMarkerPress = (shelter: Shelter) => {
+    router.push({
+      pathname: `/map/${shelter.codigo}` as RelativePathString,
+      params: {
+        ciudad: shelter.ciudad,
+        codigo: shelter.codigo,
+        edificio: shelter.edificio,
+        coordinador: shelter.coordinador,
+        telefono: shelter.telefono,
+        capacidad: shelter.capacidad,
+        lat: shelter.lat,
+        lng: shelter.lng,
+      },
+    });
+  };
 
   return (
     <BaseLayout>
@@ -61,11 +77,12 @@ export default function Map() {
               <Marker
                 key={shelter.codigo}
                 coordinate={{
-                  latitude: lng,
                   longitude: lat,
+                  latitude: lng, 
                 }}
                 title={shelter.edificio}
                 description={`Capacidad: ${shelter.capacidad}`}
+                onPress={() => handleMarkerPress(shelter)} // 🚀 Agregado el onPress
               />
             );
           })}
