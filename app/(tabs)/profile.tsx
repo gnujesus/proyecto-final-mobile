@@ -49,7 +49,7 @@ export default function Profile() {
       role: "Full Stack Digital Craftsman",
       description: "I'm a full stack digital craftsman with a passion for building scalable and efficient web applications. I'm a quick learner and I'm always looking for new challenges.",
       TelegramUrl: "https://t.me/alanTubert",
-      imageUrl: "https://media.licdn.com/dms/image/v2/D4D35AQGOPybnbG3wkw/profile-framedphoto-shrink_800_800/0/1726625506279?e=1745895600&v=beta&t=vN_ih0tSialgxty8R6w_mDwrNbyTkW-9ArbzBBW4Gsk",
+      imageUrl: "https://media.licdn.com/dms/image/v2/D4D35AQGOPybnbG3wkw/profile-framedphoto-shrink_800_800/profile-framedphoto-shrink_800_800/0/1726625506279?e=1745899200&v=beta&t=zOvF29T7SK6_-mw22IpjjQvLVQzrAxlnpUUOJiIPhxY",
       githubUrl: "https://github.com/alanTubert",
       phone: "+1987654321",
     },
