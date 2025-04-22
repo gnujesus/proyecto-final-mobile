@@ -1,4 +1,4 @@
-import { Text, View, TextInput, Button, Alert, StyleSheet } from "react-native";
+import { Text, View, TextInput, Button, Alert, StyleSheet, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import { useState } from "react";
 import { login } from "@/services/login";
@@ -71,6 +71,16 @@ export default function LoginScreen() {
           color="#FF9500" // Naranja para el botón
         />
       </View>
+      {/* Link para redirigir */}
+      <Pressable
+        onPress={() => router.push("/views/registerScreen")} // Ruta a donde quieres redirigir
+        style={({ pressed }) => [
+          styles.linkContainer,
+          pressed && { opacity: 0.6 }, // Efecto al presionar
+        ]}
+      >
+        <Text style={styles.linkText}>¿No tienes cuenta? Regístrate aquí</Text>
+      </Pressable>
     </View>
   );
 }
@@ -104,4 +114,14 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     overflow: 'hidden', // Para mantener el borde redondeado en Android
   },
+  linkContainer: {
+    marginTop: 20,
+    alignItems: "center",
+  },
+  linkText: {
+    color: '#FF9500',
+    fontSize: 16,
+    textDecorationLine: "underline",
+    fontWeight: "500"
+  }
 });

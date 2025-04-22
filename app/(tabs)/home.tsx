@@ -2,27 +2,12 @@ import { Text, View, Image, ScrollView, TouchableOpacity,Dimensions, StyleSheet 
 import { useRouter } from "expo-router";
 import BaseLayout from "@/components/BaseLayout";
 import { useRef } from "react";
-import {
-  initializeDatabase,
-  getAllFines,
-  deleteAllFines,
-} from "@/hooks/useDatabase";
 import { useState, useEffect } from "react";
 
 export default function IndexScreen() {
   const router = useRouter();
   const [isLoggedIn, setIsLoggedIn] = useState<boolean>(false);
   const [data, setData] = useState<Fine[]>();
-
-  useEffect(() => {
-    const run = async () => {
-      await initializeDatabase();
-      const all = await getAllFines();
-      setData(all);
-    };
-    run();
-  }, []);
-
   const images = [
     "https://defensacivil.gob.do/images/slide/PasionDC.png",
     "https://defensacivil.gob.do/media/zoo/images/yyy14_048c403fdae60bbd975a66382ce8b05e.jpeg",

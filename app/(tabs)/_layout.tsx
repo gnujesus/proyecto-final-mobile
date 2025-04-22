@@ -28,7 +28,7 @@ const tabs = [
   {
     id: 1,
     icon: <House size={18} color="#fff" />,
-    name: "index",
+    name: "home",
     title: "Home",
   },
   {
@@ -68,17 +68,6 @@ export default function _layout() {
   const pathName = usePathname();
   const tabWidth = 64.2;
 
-  const animatedStyle = useAnimatedStyle(() => ({
-    transform: [
-      {
-        translateX: withTiming(activeTab.value * tabWidth, {
-          duration: 200,
-          easing: Easing.inOut(Easing.quad),
-          reduceMotion: ReduceMotion.System,
-        }),
-      },
-    ],
-  }));
 
   useEffect(() => {
     const viewName = pathName.replace("/", "");
@@ -110,25 +99,6 @@ export default function _layout() {
             borderColor: "#343638",
             boxShadow: "0px 5px 5px rgba(100, 100, 100, 0.1)",
           },
-          tabBarBackground: () => (
-            <View className="flex-1 items-center">
-              <Animated.View
-                style={[
-                  {
-                    position: "absolute",
-                    bottom: 0,
-                    width: 62,
-                    height: 62,
-                    borderRadius: 30,
-                    backgroundColor: "#08AB78", // or your highlight color
-                    zIndex: 1,
-                    left: 2,
-                  },
-                  animatedStyle,
-                ]}
-              />
-            </View>
-          ),
           tabBarActiveBackgroundColor: "transparent",
           headerPressColor: "transparent",
           headerPressOpacity: 1,

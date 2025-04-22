@@ -24,7 +24,7 @@ export default function Search() {
     { id: 3, title: "Alberges", route: "../views/shelters" },
     { id: 4, title: "Medidas Preventivas", route: "../views/preventiveMesures" },
     { id: 5, title: "Miembros", route: "../views/miembros" },
-    { id: 6, title: "Quiero ser Voluntario", route: "./voluntario" },
+    { id: 6, title: "Log out", route: "../views/loginScreen" },
   ];
 
   return (
@@ -42,7 +42,14 @@ export default function Search() {
         {tabs.map((tab) => (
           <Pressable
             key={tab.id}
-            onPress={() => router.push(tab.route as RelativePathString)} 
+            onPress={() =>{
+              if (tab.title === "Log out") {
+                router.replace(tab.route as RelativePathString);
+              } else {
+                router.push(tab.route as RelativePathString); 
+              } 
+            }
+          }
             className="bg-white w-64 py-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
           >
             <Text className="text-gray-900 text-center font-semibold text-lg">
