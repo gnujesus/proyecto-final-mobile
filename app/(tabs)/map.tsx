@@ -40,7 +40,6 @@ export default function Map() {
     run();
   }, []);
 
-  // 🧡 Aquí agregamos el handler para navegar
   const handleMarkerPress = (shelter: Shelter) => {
     router.push({
       pathname: `/map/${shelter.codigo}` as RelativePathString,
