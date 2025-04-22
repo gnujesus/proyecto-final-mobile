@@ -29,7 +29,7 @@ export default function Search() {
 
   return (
     <BaseLayout className="px-5 py-6">
-      <Text className="text-white text-xl font-bold mb-6 text-center">
+      <Text className="text-orange-600 text-xl font-bold mb-6 text-center">
         Other Related Views
       </Text>
 
@@ -50,9 +50,9 @@ export default function Search() {
               } 
             }
           }
-            className="bg-white w-64 py-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
+            className="bg-orange-500 w-64 p-4 rounded-xl mt-4 mb-4 active:opacity-80 shadow-md"
           >
-            <Text className="text-gray-900 text-center font-semibold text-lg">
+            <Text className="text-white text-center font-bold text-lg">
               {tab.title}
             </Text>
           </Pressable>

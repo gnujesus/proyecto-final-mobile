@@ -13,22 +13,35 @@ interface Shelter {
 }
 
 export default function ShelterDetail() {
-  // Usa useLocalSearchParams para obtener los parámetros pasados por el router
   const { ciudad, codigo, edificio, coordinador, telefono, capacidad, lat, lng } = useLocalSearchParams();
 
   return (
-    <ScrollView className="flex-1 p-6 bg-black">
-      <Text className="text-2xl font-bold text-orange-500 mb-4">Detalles del Refugio</Text>
+    <ScrollView className="flex-1 bg-black px-5 pt-8">
+      {/* Header */}
+      <Text className="text-3xl font-bold text-orange-500 mb-6 text-center">
+        Detalles del Refugio
+      </Text>
 
-      <View className="gap-4">
-        <Text className="text-white"><Text className="font-bold text-orange-400">Código:</Text> {codigo}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Edificio:</Text> {edificio}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Ciudad:</Text> {ciudad}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Coordinador:</Text> {coordinador}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Teléfono:</Text> {telefono}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Capacidad:</Text> {capacidad}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Latitud:</Text> {lat}</Text>
-        <Text className="text-white"><Text className="font-bold text-orange-400">Longitud:</Text> {lng}</Text>
+      {/* Card container */}
+      <View className="bg-neutral-900 rounded-2xl p-6 mb-3 shadow-lg shadow-orange-500/10">
+        {/* Each detail */}
+        {[
+          { label: "Código", value: codigo },
+          { label: "Edificio", value: edificio },
+          { label: "Ciudad", value: ciudad },
+          { label: "Coordinador", value: coordinador },
+          { label: "Teléfono", value: telefono },
+          { label: "Capacidad", value: capacidad },
+          { label: "Latitud", value: lng },
+          { label: "Longitud", value: lat },
+        ].map((item, index) => (
+          <View key={index} className="mb-4">
+            <Text className="text-orange-400 font-semibold text-lg">{item.label}:</Text>
+            <Text className="text-white text-base mt-1">{item.value}</Text>
+            {/* Divider line */}
+            {index !== 7 && <View className="border-b border-neutral-700 my-3" />}
+          </View>
+        ))}
       </View>
     </ScrollView>
   );

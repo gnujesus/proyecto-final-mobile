@@ -1,13 +1,8 @@
-import { View, Text, Button, Image, ScrollView } from "react-native";
+import { View, Text, Image, ScrollView, StyleSheet } from "react-native";
 import React, { useEffect, useState } from "react";
-import FineGrid from "../../components/FineGrid";
-import FineCard from "@/components/FineCard";
-import { getAllFines, initializeDatabase } from "@/hooks/useDatabase";
 import BaseLayout from "@/components/BaseLayout";
-import SearchBar from "@/components/SearchBar";
-import FineList from "@/components/NewsList";
 import { getAllServices } from "@/services/services";
-import { Mail, MessageCircle } from "lucide-react-native";
+import { MessageCircle, Mail } from "lucide-react-native";
 
 interface Service {
   id: string;
@@ -16,56 +11,101 @@ interface Service {
   foto: string;
 }
 
+const styles = StyleSheet.create({
+  card: {
+    backgroundColor: '#1F2937',
+    borderRadius: 12,
+    padding: 20,
+    marginVertical: 10,
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    elevation: 4,
+    marginHorizontal: 4,
+  },
+  cardHeader: {
+    borderBottomWidth: 2,
+    borderBottomColor: '#FF6B00',
+    paddingBottom: 8,
+    marginBottom: 12
+  },
+  serviceImage: {
+    width: '100%',
+    height: 200,
+    borderRadius: 8,
+    marginBottom: 12,
+  },
+  textLight: {
+    color: '#E5E7EB',
+  },
+  textOrange: {
+    color: '#FF6B00',
+  },
+});
+
 function ServiceCard({ service }: { service: Service }) {
   return (
-    <View
-      key={service.id}
-      className="shadow-lg shadow-white/20 gap-10 center w-full justify-center items-center bg-light rounded-3xl py-6 px-8 mb-10"
-    >
-      <View className="gap-5">
-        <View className="gap-4 items-center">
-          <Image
-            className="w-96 h-44 rounded-lg border-light2 border-3"
-            src={service.foto}
-          />
-
-          <View className="mt-2 items-center">
-            <Text className="text-lg text-white font-semibold">
-              {service.nombre}
-            </Text>
-          </View>
-        </View>
+    <View style={styles.card}>
+      <View style={styles.cardHeader}>
+        <Text style={[styles.textOrange, { fontSize: 20, fontWeight: 'bold', textAlign: 'center' }]}>
+          {service.nombre}
+        </Text>
       </View>
-
-      <View>
-        <Text className="text-white text-center">{service.descripcion}</Text>
-      </View>
+      
+      <Image
+        source={{ uri: service.foto }}
+        style={styles.serviceImage}
+        resizeMode="cover"
+        onError={(e) => console.log('Failed to load image:', e.nativeEvent.error)}
+      />
+      
+      <Text style={[styles.textLight, { fontSize: 16, textAlign: 'justify', marginBottom: 10 }]}>
+        {service.descripcion}
+      </Text>
     </View>
   );
 }
 
-export default function Search() {
-  const [data, setData] = useState<Service[]>();
+export default function ServicesScreen() {
+  const [data, setData] = useState<Service[]>([]);
 
   useEffect(() => {
-    const run = async () => {
-      const all = await getAllServices();
-      setData(all.datos);
+    const fetchServices = async () => {
+      try {
+        const response = await getAllServices();
+        setData(response.datos || []);
+      } catch (error) {
+        console.error("Error fetching services:", error);
+      }
     };
-    run();
+    fetchServices();
   }, []);
 
   return (
     <BaseLayout>
       <ScrollView
-        className="flex-1 px-5 py-6"
+        style={{ backgroundColor: '#111827' }}
+        contentContainerStyle={{ padding: 12, paddingBottom: 100 }}
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={{ paddingBottom: 140 }}
       >
-        {data &&
-          data.map((service) => (
-            <ServiceCard key={service.id} service={service} />
-          ))}
+        {/* Header */}
+        <View style={{ alignItems: 'center', paddingVertical: 15 }}>
+          <Text style={[styles.textOrange, { fontSize: 24, fontWeight: 'bold' }]}>
+            Nuestros Servicios
+          </Text>
+          <Text style={[styles.textLight, { fontSize: 16, marginTop: 5 }]}>
+            Conoce lo que ofrecemos para tu seguridad
+          </Text>
+        </View>
+
+        {/* Services List */}
+        {data.map((service) => (
+          <ServiceCard key={service.id} service={service} />
+        ))}
       </ScrollView>
     </BaseLayout>
   );

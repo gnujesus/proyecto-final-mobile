@@ -1,9 +1,7 @@
-import { View, Text, FlatList, ScrollView, Pressable } from "react-native";
+// components/NewsList.tsx
+import { View, Text, StyleProp, ViewStyle } from "react-native";
 import React from "react";
 import NewsListItem from "./NewsListItem";
-import Separator from "./Separator";
-import { ChevronRight } from "lucide-react-native";
-import { colors } from "@/constants/colors";
 
 interface Props {
   newsList: New[];

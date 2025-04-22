@@ -1,12 +1,9 @@
-import { View, Text } from "react-native";
+import { View, Text, ScrollView } from "react-native";
 import React, { useEffect, useMemo, useState } from "react";
-import FineGrid from "../../components/FineGrid";
-import FineCard from "@/components/FineCard";
 import BaseLayout from "@/components/BaseLayout";
 import SearchBar from "@/components/SearchBar";
 import { getAllNews } from "@/services/news";
 import NewsList from "@/components/NewsList";
-import { ScrollView } from "react-native";
 
 export default function Search() {
   const [data, setData] = useState<New[]>();
@@ -20,7 +17,6 @@ export default function Search() {
     run();
   }, []);
 
-  // Memoized filtered data
   const filteredData = useMemo(() => {
     const q = query.toLowerCase();
     return (data || []).filter((item) =>

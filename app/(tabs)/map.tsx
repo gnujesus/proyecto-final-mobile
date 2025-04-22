@@ -49,7 +49,7 @@ export default function Map() {
         edificio: shelter.edificio,
         coordinador: shelter.coordinador,
         telefono: shelter.telefono,
-        capacidad: shelter.capacidad,
+        capacidad: !shelter.capacidad ? "0 personas" : shelter.capacidad,
         lat: shelter.lat,
         lng: shelter.lng,
       },
@@ -80,7 +80,7 @@ export default function Map() {
                   latitude: lng, 
                 }}
                 title={shelter.edificio}
-                description={`Capacidad: ${shelter.capacidad}`}
+                description={`Capacidad: ${!shelter.capacidad ? "0 personas" : shelter.capacidad}`}
                 onPress={() => handleMarkerPress(shelter)} // 🚀 Agregado el onPress
               />
             );
